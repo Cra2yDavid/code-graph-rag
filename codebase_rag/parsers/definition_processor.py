@@ -2109,6 +2109,8 @@ class DefinitionProcessor:
     ) -> None:
         """Detect and ingest ES6 export statements as function definitions."""
         try:
+            if not language in ['javascript', 'typescript']:
+                return
             lang_query = queries[language]["language"]
 
             # Query for export const name = function patterns
